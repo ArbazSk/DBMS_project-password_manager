@@ -9,7 +9,7 @@ String mid = (String)session.getAttribute("MID");
 int statusQuery = 0;
 if(Websitename!=null && WebsiteUrl!=null && username!=null && password!=null){
   try{
-    
+
     // Inserting Data into database
     String Data = "Insert into site_account(USERNAME,PASSWORD,WEBSITE_NAME,WEBSITE_URL,M_ID,NOTES) values(?,?,?,?,?,?) ";
     ps=connection.prepareStatement(Data);
