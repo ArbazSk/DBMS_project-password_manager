@@ -18,7 +18,7 @@
   </header>
   <main>
     <div class="register">
-      <form action="" method="post">
+      <form action="../jsp/signupCheck.jsp" method="post">
         <h2>Sign Up</h2>
         <input type="text" name="fullName" minlength="5" id="FullName" value="" placeholder="Full Name" required="required"><br>
         <span id="fullNameErr"></span>
@@ -27,6 +27,7 @@
         <input type="password" name="Mpassword" minlength="5" class="pass" id="passw" value="" placeholder="Master Password" required="required"><br>
         <input type="password" name="Mconpassword" minlength="5" class="pass" id="Cpassw" value="" placeholder="Confirm Password" required="required"><br>
         <!-- <span id="passwordError"></span><br> -->
+        <input type="text" name="number" minlength="10" maxlength="10" class="pass" id="num" value="" placeholder="Phone Number" required="required"><br>
         <input type="email" name="Memail" id="email" value="" placeholder="Email" required="required"/><br>
         <input type="submit"  value="Sign Up"/><br>
       </form>
@@ -38,7 +39,7 @@
   </div>
 </footer>
 <script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/misc.js"></script>
 <script src="../js/validate.js"></script>
+<script src="../js/misc.js"></script>
 </body>
 </html>

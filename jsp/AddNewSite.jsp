@@ -21,6 +21,7 @@ if(Websitename!=null && WebsiteUrl!=null && username!=null && password!=null){
     ps.setString(6,notes);
 
     statusQuery = ps.executeUpdate();
+    connection.close();
     if(statusQuery > 0){
       response.sendRedirect("../html/sitelist.jsp?userLoggedin=y");
     }
@@ -30,8 +31,6 @@ if(Websitename!=null && WebsiteUrl!=null && username!=null && password!=null){
   }
   catch (Exception e) {
     out.println("Connection Failed");
-
-
   }
 
 }

@@ -1,17 +1,32 @@
-<%
+<%-- <%
 public String sqlQuery(){
-String username=request.getParameter("username");
-String pass=request.getParameter("pass");
-String dbname=null;
-String dbpass=null;
-String Data = "select * from master_account where m_username=? and m_password=? ";
+String mid= session.getAttribute("MID");
+String Data = "select * from site_account where M_ID=? ";
 ps=connection.prepareStatement(Data);
-ps.setString(1,username);
-ps.setString(2,pass);
+ps.setString(1,mid);
 rs = ps.executeQuery();
 while (rs.next()) {
-dbname=rs.getString("m_username");
-dbpass=rs.getString("m_password");
+
 }
+}
+%> --%>
+<%-- <%@ include file="../connection.jsp" %> --%>
+<%!
+void insertUSER(String name, int number, String email){
+  int statusQuery;
+  String Data_user = "insert into user(UNAME,UPHONE,UEMAIL) values(?,?,?)" ;
+  ps=connection.prepareStatement(Data_user);
+  ps.setString(1,name);
+  ps.setString(2,number);
+  ps.setString(3,email);
+
+  statusQuery = ps.executeUpdate();
+  connection.close();
+  if(statusQuery > 0){
+
+  }else {
+    response.sendRedirect("../html/signup.jsp");
+  }
+
 }
 %>

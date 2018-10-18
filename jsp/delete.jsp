@@ -8,7 +8,6 @@ String  mid = (String)session.getAttribute("MID");
 String id = request.getParameter("del");
 int sid = Integer.parseInt(id);
 
-
 try {
   // String Data = "select * from site_account where M_ID=? ";
   // ps=connection.prepareStatement(Data);
@@ -19,7 +18,7 @@ try {
   //   out.println(id);
   // }
     statement.executeUpdate("DELETE FROM site_account WHERE S_ID = '" + sid +"' ");
-
+    connection.close();
     response.sendRedirect("../html/sitelist.jsp");
 } catch(Exception e){}
 %>

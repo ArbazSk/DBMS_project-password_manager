@@ -56,6 +56,7 @@ if(Websitename!=null && WebsiteUrl!=null && username!=null && password!=null){
         ps.setString(4,WebsiteUrl);
         ps.setString(5,notes);
         updateQuery=ps.executeUpdate();
+        connection.close();
         if(updateQuery!=0){
             response.sendRedirect("../html/sitelist.jsp?userLoggedin=y");
         }

@@ -47,6 +47,7 @@
       rs = ps.executeQuery();
       while (rs.next()) {
       %>
+          <div id="website" class="contentDiv"><span class="contentLable">User-Agent:</span>  <span class="contentValue"><%= request.getHeader("user-Agent") %></span></div>
           <div id="website" class="contentDiv"><span class="contentLable">Website Name:</span>  <span class="contentValue"><%= rs.getString("WEBSITE_NAME") %></span></div>
           <div id="url" class="contentDiv"><span class="contentLable">Website Url:</span> <span class="contentValue"><%= rs.getString("WEBSITE_URL") %></span></div>
           <div id="username" class="contentDiv"><span class="contentLable">Username:</span>  <span class="contentValue"><%= rs.getString("USERNAME") %></span></div>
