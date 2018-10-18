@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Oct 14, 2018 at 07:55 PM
+-- Generation Time: Oct 18, 2018 at 05:09 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -54,18 +54,21 @@ CREATE TABLE `device` (
   `D_ID` int(5) NOT NULL,
   `OS` char(20) DEFAULT NULL,
   `BROWSER_NAME` char(10) DEFAULT NULL,
-  `BROWSER_VERSION` int(5) DEFAULT NULL,
-  `IP_ADDRESS` int(15) NOT NULL,
-  `USER_ID` int(5) DEFAULT NULL,
-  `S_ID` int(5) DEFAULT NULL
+  `BROWSER_VERSION` char(15) DEFAULT NULL,
+  `IP_ADDRESS` char(20) DEFAULT NULL,
+  `USER_ID` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `device`
 --
 
-INSERT INTO `device` (`D_ID`, `OS`, `BROWSER_NAME`, `BROWSER_VERSION`, `IP_ADDRESS`, `USER_ID`, `S_ID`) VALUES
-(1, 'linux', 'firefox', 405, 17242542, 1, 1);
+INSERT INTO `device` (`D_ID`, `OS`, `BROWSER_NAME`, `BROWSER_VERSION`, `IP_ADDRESS`, `USER_ID`) VALUES
+(1, 'linux', 'firefox', '405', '17242542', 1),
+(2, 'windows', 'chrome', '7', '15655956', NULL),
+(3, 'windows', 'chrome', '7', '15655956', NULL),
+(4, '5.0', 'Chrome', '70.0.3538.67', '0:0:0:0:0:0:0:1', 8),
+(5, 'Windows', 'Chrome', '70.0.3538.67', '0:0:0:0:0:0:0:1', 8);
 
 -- --------------------------------------------------------
 
@@ -93,7 +96,24 @@ INSERT INTO `master_account` (`M_ID`, `M_NAME`, `M_USERNAME`, `M_PASSWORD`, `C_I
 (8, 'Arbazsk', 'Arbaz', 'b8d9082b5ad0f7db947667fa3588546f632cd4ff35c41c6708de91e00479041cdc32d4ae763a664833887f20f9966fda984b69639bf365660d269e8c2632109d', NULL),
 (9, 'Shahabaz shaikh', 'Shahabaz', '1a023ad5086a6ff19b2ee1423e11f288ce269a63c3f242cce9508597e79abf87adec203195833a6586af89e29f1f25db996cfd6eac636351d1986471c2104086', NULL),
 (10, 'Shaikh Sufiyan', 'Sufiyan', 'ad670f9952742d8f0771a6e0fc73e16c77bde50719ee948f63e3b9b3f7c13d693319eca61b78fe9395806632b1dec1cba1b8339b76474bb2fc3ec07cc39b6d4b', NULL),
-(11, 'Faizan shaikh', 'Faizan', '1b6807b71c0807c2acfa0e2d4adcf304d53c02ee13e938f83b7011a818479319c30d00cfe0bbc20591399334af22f8c0748e840c827fce51168dc419a64915c6', NULL);
+(11, 'Faizan shaikh', 'Faizan', '1b6807b71c0807c2acfa0e2d4adcf304d53c02ee13e938f83b7011a818479319c30d00cfe0bbc20591399334af22f8c0748e840c827fce51168dc419a64915c6', NULL),
+(12, 'shahabaz', 'shahabaz', 'shahabaz', NULL),
+(13, 'mark john', 'mark123', '123456', NULL),
+(18, 'sufiyan', 'sufiyan', '123456', NULL),
+(19, 'sufiyan', 'sufiyan', '123456', NULL),
+(20, 'sufiyan', 'sufiyan', '123456', NULL),
+(21, 'sufiyan', 'sufiyan', 'asdfgh', NULL),
+(22, 'sufiyan', 'sufiyan', 'sufiyan', NULL),
+(23, 'sufiyan', 'sufiyan', 'sufiyan', NULL),
+(24, 'sufiyan', 'sufiyan', 'sufiyan', NULL),
+(25, 'sufiyan', 'sufiyan', 'sufiyan', NULL),
+(26, 'sufiyan', 'sufiyan', 'sufiyan', NULL),
+(27, 'sufiyan', 'sufiyan', 'sufiyan', NULL),
+(28, 'sufiyan', 'sufiyan', 'qwerty', NULL),
+(29, 'mohammed khan', 'mnk123', 'mnk123', NULL),
+(30, 'virat kholi', 'virat', 'virat', NULL),
+(31, 'vikram', 'viku12', 'viku12', NULL),
+(32, 'qwerty', 'qwerty', 'qwerty', NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +166,9 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`USER_ID`, `UNAME`, `UPHONE`, `UEMAIL`) VALUES
 (1, 'ARBAZ', 1234567890, 'ARBAZ123@GMAIL.COM'),
 (2, 'SOHAIL', 2147483647, 'SOHAIL456@GMAIL.COM'),
-(3, 'REHAN', 1336896545, 'REHAN3259@GMAIL.COM');
+(3, 'REHAN', 1336896545, 'REHAN3259@GMAIL.COM'),
+(7, 'virat kholi', 1264878652, 'virat@gmail.com'),
+(8, 'qwerty', 1234567897, 'qwerty@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -163,8 +185,7 @@ ALTER TABLE `company`
 --
 ALTER TABLE `device`
   ADD PRIMARY KEY (`D_ID`),
-  ADD KEY `USER_ID` (`USER_ID`),
-  ADD KEY `S_ID` (`S_ID`);
+  ADD KEY `USER_ID` (`USER_ID`);
 
 --
 -- Indexes for table `master_account`
@@ -201,13 +222,13 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `device`
 --
 ALTER TABLE `device`
-  MODIFY `D_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `D_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `master_account`
 --
 ALTER TABLE `master_account`
-  MODIFY `M_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `M_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `site_account`
@@ -219,7 +240,7 @@ ALTER TABLE `site_account`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `USER_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `USER_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -229,8 +250,7 @@ ALTER TABLE `user`
 -- Constraints for table `device`
 --
 ALTER TABLE `device`
-  ADD CONSTRAINT `device_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`),
-  ADD CONSTRAINT `device_ibfk_2` FOREIGN KEY (`S_ID`) REFERENCES `site_account` (`S_ID`);
+  ADD CONSTRAINT `device_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`USER_ID`);
 
 --
 -- Constraints for table `master_account`
