@@ -9,9 +9,6 @@ while (rs.next()) {
 
 }
 }
-%> --%>
-<%-- <%@ include file="../connection.jsp" %> --%>
-<%!
 void insertUSER(String name, int number, String email){
   int statusQuery;
   String Data_user = "insert into user(UNAME,UPHONE,UEMAIL) values(?,?,?)" ;
@@ -29,4 +26,23 @@ void insertUSER(String name, int number, String email){
   }
 
 }
-%>
+
+
+%> --%>
+<%-- <%@ include file="../connection.jsp" %>
+<%!
+
+public String getuserid(){
+  String userid = null;
+  String Data = "select USER_ID  from user where M_ID=?";
+  String mid = (String)session.getAttribute("MID");
+  ps=connection.prepareStatement(Data);
+  ps.setString(1,mid);
+  rs = ps.executeQuery();
+  while (rs.next()) {
+    userid = rs.getString("USER_ID");
+  }
+  connection.close();
+return userid;
+}
+%> --%>

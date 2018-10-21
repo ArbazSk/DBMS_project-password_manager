@@ -1,10 +1,10 @@
- <%@page import="java.util.regex.Pattern;"  %>
+ <%-- <%@page import="java.util.regex.Pattern"  %> --%>
 <%@ include file="../connection.jsp" %>
 
 <%
 try{
-	String username=request.getParameter("username");
-	String pass=request.getParameter("pass");
+	String username = request.getParameter("username");
+	String pass = request.getParameter("pass");
 	String dbname=null;
 	String dbpass=null;
   String dbMID = null;
@@ -20,13 +20,11 @@ try{
 	dbpass=rs.getString("m_password");
   dbMID = rs.getString("M_ID");
 	}
-		// connection.close();
-  // out.println(pass);
+
 	if(dbname.equals(username) && dbpass.equals(pass)){
   	session.setAttribute("user",username);
     session.setAttribute("MID",dbMID);
     session.setAttribute("userLoggedin","y");
-		//select user_id
 		String Data1 = "select USER_ID from user where UNAME=? ";
 		ps=connection.prepareStatement(Data1);
 		ps.setString(1,username);
@@ -35,18 +33,16 @@ try{
 		 		userid = rs.getString("USER_ID");
 		}
 
-		//
 		String[] browsers = {"chrome","edge","safari","opera","firefox"};
 		String Agent =	request.getHeader("user-Agent");
 		String[] detail = Agent.toLowerCase().split("[ ()/]+");
 		String os = detail[2];
-		String browser_name;
+		String browser_name = null;
 		for (String ser : detail ) {
 			for (String brow : browsers) {
 				if(ser.equals(brow)){
 					 browser_name = brow;
 				}
-
 			}
 		}
 		String browser_ver = detail[13];
@@ -80,12 +76,10 @@ try{
 <%
 
 		//---------------------------------------------//
-    // response.sendRedirect("../html/sitelist.jsp?userLoggedin=y");
 	 }
    else{
      response.sendRedirect("../html/login.html");
   }
-
 }
     catch(NullPointerException e){
         e.printStackTrace();

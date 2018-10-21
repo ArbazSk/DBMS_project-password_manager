@@ -1,4 +1,4 @@
- <%@page import="java.util.regex.Pattern;"  %>
+ <%-- <%@page import="java.util.regex.Pattern;"  %>
 <ol start="0">
 <%
 String browser_name = null;
@@ -10,8 +10,8 @@ for (String temp : headsplit ) {
 
 }
 String[] browsers = {"chrome","edge","safari","opera","firefox"};
-for (String ser : headsplit ) {
   for (String brow : browsers) {
+    for (String ser : headsplit ) {
     if(ser.equals(brow.toLowerCase())){
        browser_name = brow ;
        break;
@@ -27,7 +27,7 @@ out.println(head);
 
 
 %>
-</ol>
+</ol> --%>
 <%
-out.println(request.getRemoteAddr());
+out.println(session.getAttribute("MID"));
 %>

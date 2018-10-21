@@ -11,7 +11,7 @@ String Memail=request.getParameter("Memail");
 String dbname = null ;
 int statusQuery = 0;
 
-if(fullName!=null && Musername!=null && Mpassword!=null && Mconpassword!=null && Memail!=null){
+if(fullName!=null && Musername!=null && Mpassword!=null && Mconpassword!=null && Memail!=null && number!=null){
 
     try{
 
@@ -40,7 +40,7 @@ if(fullName!=null && Musername!=null && Mpassword!=null && Mconpassword!=null &&
 //        else
 //        {
 //          out.println("Im in else of insertion");
-         String Data = "insert into master_account(M_NAME,M_USERNAME,M_PASSWORD) values(?,?,?)";
+         String Data = "Insert into master_account(M_NAME,M_USERNAME,M_PASSWORD) values(?,?,?)";
          ps=connection.prepareStatement(Data);
          ps.setString(1,fullName);
          ps.setString(2,Musername);
@@ -50,24 +50,25 @@ if(fullName!=null && Musername!=null && Mpassword!=null && Mconpassword!=null &&
 
          if(statusQuery > 0){
            try{
-             
-           String Data_user = "insert into user(UNAME,UPHONE,UEMAIL) values(?,?,?)";
+             // out.println("in try block of user insertion");
+           String Data_user = "Insert into user(UNAME,UPHONE,UEMAIL) values(?,?,?)";
            ps=connection.prepareStatement(Data_user);
            ps.setString(1,fullName);
            ps.setString(2,number);
            ps.setString(3,Memail);
-           statusQuery = ps.executeUpdate();
-           out.println(statusQuery);
+           int statusQuery1 = ps.executeUpdate();
+           // out.println(statusQuery1);
            connection.close();
          }
          catch (Exception e) {
-
+            out.println("Error Occured in user table"+"<br>");
+            e.printStackTrace();
          }
          %>
          <script>
             setTimeout(function() {
                   document.location = "../html/login.jsp";
-              }, 2000);
+              }, 5000);
         </script>
 
 
@@ -80,7 +81,7 @@ if(fullName!=null && Musername!=null && Mpassword!=null && Mconpassword!=null &&
            <script>
           		  setTimeout(function() {
           		      document.location = "../html/login.jsp";
-          		  }, 1000);
+          		  }, 000);
 		      </script>
 <%
           response.sendRedirect("../html/index.jsp");

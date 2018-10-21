@@ -2,7 +2,6 @@
   <head>
     <title>Register</title>
     <link rel="stylesheet" href="../css/style.css"/>
-    <!-- <link rel="stylesheet" href="/css/style.css"/> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   </head>
 <body class="bodybgsignup">
